@@ -1,20 +1,18 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, ViewStyle, TextStyle } from "react-native";
 import React from "react";
 import { Colors } from "@/constants/Colors";
 
 interface Props {
   title: string;
   onPress: () => void;
-  width: number;
-  height: number;
-  fontSize: number;
-  fontWeight: any;
-  borderRadius: number;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
 }
-const ConfirmButton = ({ title, onPress, width, height, fontSize, borderRadius, fontWeight }: Props) => {
+
+const ConfirmButton: React.FC<Props> = ({ title, onPress, style, textStyle }) => {
   return (
-    <TouchableOpacity style={[styles.btn, { width, height, borderRadius }]} onPress={onPress}>
-      <Text style={{ color: "white", fontSize, fontWeight }}>{title}</Text>
+    <TouchableOpacity style={[styles.btn, style]} onPress={onPress}>
+      <Text style={[styles.text, textStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -26,5 +24,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.confirmButton,
     justifyContent: "center",
     alignItems: "center",
+    padding: 10,
+    borderRadius: 5,
+  },
+  text: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });

@@ -22,11 +22,11 @@ export default function EnterOTP() {
 
         <View style={styles.input}>
           <InputComponent title={"Nhập mã OTP"} value={otp} setState={setOTP} />
-          <ConfirmButton title={"Đăng nhập"} onPress={() => console.log("otp....")} width={width * 0.9} height={scale(50)} fontSize={scale(16)} fontWeight={"bold"} borderRadius={scale(15)} />
+          <ConfirmButton title={"Đăng nhập"} onPress={() => console.log("otp....")} style={{ width: width * 0.9, height: scale(50), borderRadius: scale(15) }} textStyle={{ fontSize: scale(16), fontWeight: "bold" }} />
         </View>
 
         <View style={styles.bottom}>
-          <ConfirmButton title={"Đăng nhập bằng tài khoản"} onPress={() => router.navigate("/")} width={width / 2} height={scale(40)} fontSize={scale(13)} fontWeight={"normal"} borderRadius={scale(10)} />
+          <ConfirmButton title={"Đăng nhập bằng tài khoản"} onPress={() => router.navigate("/")} style={{ width: width / 2, height: scale(40), borderRadius: scale(10) }} textStyle={{ fontSize: scale(13), fontWeight: "200" }} />
           <Text
             onPress={() => console.log("quen mat khau")}
             style={{
