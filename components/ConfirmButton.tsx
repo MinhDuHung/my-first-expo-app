@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, ViewStyle, TextStyle } from "react-native";
 import React from "react";
 import { Colors } from "@/constants/Colors";
+import { ScaledSheet } from "react-native-size-matters";
 
 interface Props {
   title: string;
@@ -19,7 +20,7 @@ const ConfirmButton: React.FC<Props> = ({ title, onPress, style, textStyle }) =>
 
 export default ConfirmButton;
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   btn: {
     backgroundColor: Colors.confirmButton,
     justifyContent: "center",
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 16,
+    fontSize: "16@s",
     fontWeight: "bold",
   },
 });

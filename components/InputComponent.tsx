@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TextInput, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
 import React, { useState } from "react";
 import Profile from "@/assets/svgs/Profile";
 import Lock from "@/assets/svgs/Lock";
@@ -11,18 +11,21 @@ interface Props {
   value: string;
   leftIcon?: string;
   rightIcon?: string;
+  placeholder?: string;
   setState: React.Dispatch<React.SetStateAction<string>>;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
 }
 
-const InputComponent = ({ value, leftIcon, title, rightIcon, setState }: Props) => {
+const InputComponent = ({ value, leftIcon, title, rightIcon, setState, style, textStyle, placeholder }: Props) => {
   const [secure, setSecure] = useState<boolean>(true);
   const paddingLeft = leftIcon || rightIcon ? (leftIcon === "phone" ? scale(80) : scale(50)) : scale(15);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title, textStyle]}>{title}</Text>
       <View style={styles.inputContainer}>
         {leftIcon && LeftIcon(leftIcon)}
-        <TextInput value={value} secureTextEntry={!secure} style={[styles.textInput, { paddingLeft }]} onChangeText={(v) => setState(v)} />
+        <TextInput value={value} placeholder={placeholder ?? ""} placeholderTextColor={"rgba(0,0,0,.3)"} secureTextEntry={!secure} style={[styles.textInput, style, { paddingLeft }]} onChangeText={(v) => setState(v)} />
         {rightIcon && RightIcon(rightIcon, setSecure)}
       </View>
     </View>
@@ -59,7 +62,7 @@ const RightIcon = (leftIcon: string, setSecure: React.Dispatch<React.SetStateAct
 const styles = ScaledSheet.create({
   container: {
     height: "60@s",
-    width: "90%",
+    width: "100%",
     gap: "5@s",
     marginBottom: "10@s",
   },
@@ -73,7 +76,7 @@ const styles = ScaledSheet.create({
   },
 
   title: {
-    paddingHorizontal: "15@s",
+    paddingHorizontal: "10@s",
     color: "white",
     fontSize: "16@s",
   },

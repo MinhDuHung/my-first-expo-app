@@ -28,7 +28,7 @@ export default function EnterOTP() {
         <View style={styles.bottom}>
           <ConfirmButton title={"Đăng nhập bằng tài khoản"} onPress={() => router.navigate("/")} style={{ width: width / 2, height: scale(40), borderRadius: scale(10) }} textStyle={{ fontSize: scale(13), fontWeight: "200" }} />
           <Text
-            onPress={() => console.log("quen mat khau")}
+            onPress={() => router.navigate("/forgot_password")}
             style={{
               textDecorationStyle: "solid",
               color: "white",
@@ -52,7 +52,7 @@ const styles = ScaledSheet.create({
     zIndex: 1,
   },
   input: {
-    width: "100%",
+    width: "90%",
     alignItems: "center",
     gap: "15@s",
     height: "300@vs",
