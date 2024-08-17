@@ -1,20 +1,18 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { Colors } from "@/constants/Colors";
 import BaseContainer from "@/components/BaseContainer";
 import Back from "@/assets/svgs/Back";
 import { scale, ScaledSheet } from "react-native-size-matters";
 import { router } from "expo-router";
 import InputComponent from "@/components/InputComponent";
 import ConfirmButton from "@/components/ConfirmButton";
+import AppWrapper from "@/components/AppWrapper";
 
 const ForgotPassWord = () => {
   const [input, setInput] = useState<string>("");
 
   return (
-    <View style={{ flex: 1, backgroundColor: Colors.primary }}>
-      <Image style={{ flex: 1, opacity: 0.3 }} source={require("../assets/images/background.png")} />
-
+    <AppWrapper>
       <BaseContainer style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
@@ -64,7 +62,7 @@ const ForgotPassWord = () => {
           />
         </View>
       </BaseContainer>
-    </View>
+    </AppWrapper>
   );
 };
 
