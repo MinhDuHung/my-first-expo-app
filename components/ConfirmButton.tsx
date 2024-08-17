@@ -27,6 +27,12 @@ const styles = ScaledSheet.create({
     alignItems: "center",
     padding: 10,
     borderRadius: 5,
+    shadowOpacity: 0.1,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    elevation: 2,
   },
   text: {
     color: "white",
